@@ -1,12 +1,8 @@
 package id.indevelopment.feedback
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.SpannableStringBuilder
-import android.util.Log
-import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -19,7 +15,7 @@ import java.util.*
 
 internal class FeedbackActivity : AppCompatActivity() {
     private val binding by lazy { ActivityFeedbackBinding.inflate(layoutInflater) }
-    private lateinit var logs: SpannableStringBuilder
+    private lateinit var logs: List<SystemInfo>
     private lateinit var appName: String
     private lateinit var screenshotFile: File
     private lateinit var emailTo: String
@@ -60,10 +56,6 @@ internal class FeedbackActivity : AppCompatActivity() {
 
         binding.viewLogs.setOnClickListener {
             LogDialog(logs).show(supportFragmentManager, LogDialog.TAG)
-//            AlertDialog.Builder(this)
-//                .setMessage(logs)
-//                .setTitle(R.string.feedback_dialog_title)
-//                .create()
         }
 
         val uri = Uri.fromFile(screenshotFile)
@@ -78,7 +70,6 @@ internal class FeedbackActivity : AppCompatActivity() {
         binding.textField.addTextChangedListener {
             binding.toolbar.menu[0].isEnabled = it?.isNotEmpty() ?: false
         }
-        Log.d("TAG", "openFeedback: end ${System.currentTimeMillis()}")
     }
 
     private fun sendFeedback() {

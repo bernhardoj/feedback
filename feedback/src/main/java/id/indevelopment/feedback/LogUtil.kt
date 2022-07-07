@@ -3,9 +3,7 @@ package id.indevelopment.feedback
 import android.content.Context
 import android.os.Build
 import android.os.Process
-import android.text.SpannableStringBuilder
 import android.util.Log
-import androidx.core.text.bold
 import java.io.*
 
 internal object LogUtil {
@@ -52,77 +50,27 @@ internal object LogUtil {
         packageVersion: String,
         packageVersionName: String,
         locale: String
-    ): SpannableStringBuilder {
-        val logs = SpannableStringBuilder()
-        logs.bold { logs.appendLine("Package name") }
-            .appendLine(packageName)
-            .appendLine()
+    ): List<SystemInfo> {
+        val infos = mutableListOf<SystemInfo>()
+        infos.add(SystemInfo("Package name", packageName))
+        infos.add(SystemInfo("Package version", packageVersion))
+        infos.add(SystemInfo("Package version name", packageVersionName))
+        infos.add(SystemInfo("Locale", locale))
+        infos.add(SystemInfo("Device", Build.DEVICE))
+        infos.add(SystemInfo("Build ID", Build.ID))
+        infos.add(SystemInfo("Build type", Build.TYPE))
+        infos.add(SystemInfo("Build fingerprint", Build.FINGERPRINT))
+        infos.add(SystemInfo("Model", Build.MODEL))
+        infos.add(SystemInfo("Product", Build.PRODUCT))
+        infos.add(SystemInfo("SDK Version", Build.VERSION.SDK_INT.toString()))
+        infos.add(SystemInfo("Release", Build.VERSION.RELEASE))
+        infos.add(SystemInfo("Incremental version", Build.VERSION.INCREMENTAL))
+        infos.add(SystemInfo("Codename", Build.VERSION.CODENAME))
+        infos.add(SystemInfo("Board", Build.BOARD))
+        infos.add(SystemInfo("Brand", Build.BRAND))
+        infos.add(SystemInfo("Logs", getLogcat()))
 
-        logs.bold { logs.appendLine("Package version") }
-            .appendLine(packageVersion)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Package version name") }
-            .appendLine(packageVersionName)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Locale") }
-            .appendLine(locale)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Device") }
-            .appendLine(Build.DEVICE)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Build ID") }
-            .appendLine(Build.ID)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Build type") }
-            .appendLine(Build.TYPE)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Build fingerprint") }
-            .appendLine(Build.FINGERPRINT)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Model") }
-            .appendLine(Build.MODEL)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Product") }
-            .appendLine(Build.PRODUCT)
-            .appendLine()
-
-        logs.bold { logs.appendLine("SDK Version") }
-            .appendLine(Build.VERSION.SDK_INT.toString())
-            .appendLine()
-
-        logs.bold { logs.appendLine("Release") }
-            .appendLine(Build.VERSION.RELEASE)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Incremental version") }
-            .appendLine(Build.VERSION.INCREMENTAL)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Codename") }
-            .appendLine(Build.VERSION.CODENAME)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Board") }
-            .appendLine(Build.BOARD)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Brand") }
-            .appendLine(Build.BRAND)
-            .appendLine()
-
-        logs.bold { logs.appendLine("Log") }
-            .appendLine(getLogcat())
-            .appendLine()
-
-        return logs
+        return infos
     }
 
     fun writeLogsToFile(context: Context, logs: String): File {

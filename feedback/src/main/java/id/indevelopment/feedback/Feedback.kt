@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
-import android.util.Log
 import androidx.core.view.drawToBitmap
 import java.io.File
 import java.io.FileOutputStream
@@ -17,7 +16,6 @@ class Feedback(
 ) {
     @Suppress("DEPRECATION")
     fun openFeedback() {
-        Log.d("TAG", "openFeedback: start ${System.currentTimeMillis()}")
         val bitmapCapture = screenCapture ?: callerActivity.window.decorView.drawToBitmap()
         val file = File(callerActivity.cacheDir, "feedback_screenshot.png")
         FileUtil.saveBitmap(BitmapUtil.resize(bitmapCapture, 1024), FileOutputStream(file))

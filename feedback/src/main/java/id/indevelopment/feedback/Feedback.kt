@@ -20,7 +20,7 @@ class Feedback(
         Log.d("TAG", "openFeedback: start ${System.currentTimeMillis()}")
         val bitmapCapture = screenCapture ?: callerActivity.window.decorView.drawToBitmap()
         val file = File(callerActivity.cacheDir, "feedback_screenshot.png")
-        FileUtil.saveBitmap(bitmapCapture, FileOutputStream(file))
+        FileUtil.saveBitmap(BitmapUtil.resize(bitmapCapture, 1024), FileOutputStream(file))
         val screenshotPath = file.absolutePath
 
         val packageName = callerActivity.packageName

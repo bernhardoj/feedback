@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/white"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_alignParentStart="true">
+
+                <ImageButton
+                    android:id="@+id/screenshot_preview_pick_highlight_color"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/highlight_shape"
+                    android:contentDescription="@string/highlight"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="3dp"
+                    android:layout_marginEnd="3dp"/>
+
+                <ImageButton
+                    android:id="@+id/screenshot_preview_pick_hide_color"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:padding="3dp"
+                    android:src="@drawable/hide_shape"
+                    android:contentDescription="@string/hide"
+                    android:background="?attr/selectableItemBackground"/>
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/screenshot_preview_undo"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:src="@drawable/ic_baseline_undo_24"
+                android:contentDescription="@string/undo"
+                android:layout_centerInParent="true"
+                android:background="?attr/selectableItemBackground"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_alignParentEnd="true"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/screenshot_preview_save"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_baseline_check_24"
+                    android:contentDescription="@string/save"
+                    android:background="?attr/selectableItemBackground"/>
+
+                <ImageButton
+                    android:id="@+id/screenshot_preview_close"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:contentDescription="@string/close"
+                    android:background="?attr/selectableItemBackground"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/screenshot_preview_image_view_updated"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <me.panavtec.drawableview.DrawableView
+            android:id="@+id/screenshot_preview_image_drawable_view"
+            android:layout_centerInParent="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/screenshot_preview_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/screenshot_preview" />
+    </RelativeLayout>
+</LinearLayout>

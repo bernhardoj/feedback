@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1105" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/hide_shape.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/highlight_shape.xml" value="0.123" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/ic_baseline_arrow_back_24_inactive.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/ic_baseline_check_24.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/ic_baseline_close_24.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/ic_baseline_send_24_inactive.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/ic_baseline_undo_24.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/screenshot_bg.xml" value="0.123" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/drawable/send_icon.xml" value="0.124" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/layout/activity_feedback.xml" value="0.536" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/layout/screenshot_preview.xml" value="0.136" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/menu/menu_main.xml" value="0.10400000000000001" />
+        <entry key="..\:/Project/AndroidStudioProject/Feedback/feedback/src/main/res/xml/provider_paths.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

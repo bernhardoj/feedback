@@ -11,14 +11,14 @@ import android.view.Window
 import androidx.core.content.ContextCompat
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.DialogFragment
-import id.indevelopment.feedback.databinding.ScreenshotPreviewBinding
+import id.indevelopment.feedback.databinding.FeedbackScreenshotPreviewBinding
 import me.panavtec.drawableview.DrawableViewConfig
 import java.io.File
 import java.io.FileOutputStream
 
 internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave: () -> Unit) :
     DialogFragment() {
-    private var binding: ScreenshotPreviewBinding? = null
+    private var binding: FeedbackScreenshotPreviewBinding? = null
     private val highlightColor by lazy {
         ContextCompat.getColor(
             requireContext(),
@@ -42,7 +42,7 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext())
-        binding = ScreenshotPreviewBinding.inflate(LayoutInflater.from(requireContext()))
+        binding = FeedbackScreenshotPreviewBinding.inflate(LayoutInflater.from(requireContext()))
 
         binding?.let {
             dialog.apply {

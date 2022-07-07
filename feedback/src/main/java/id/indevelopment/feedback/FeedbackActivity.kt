@@ -12,7 +12,7 @@ import id.indevelopment.feedback.databinding.ActivityFeedbackBinding
 import java.io.File
 import java.util.*
 
-class FeedbackActivity : AppCompatActivity() {
+internal class FeedbackActivity : AppCompatActivity() {
     private val binding by lazy { ActivityFeedbackBinding.inflate(layoutInflater) }
     private lateinit var logs: SpannableStringBuilder
     private lateinit var appName: String

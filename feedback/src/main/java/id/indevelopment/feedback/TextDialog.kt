@@ -12,4 +12,8 @@ internal class TextDialog(private val text: String) : DialogFragment() {
             .setMessage(text)
             .create()
     }
+
+    companion object {
+        const val TAG = "TextDialog"
+    }
 }

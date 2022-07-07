@@ -9,6 +9,7 @@ import androidx.core.content.FileProvider
 import androidx.core.view.WindowCompat
 import androidx.core.view.get
 import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.DialogFragment
 import id.indevelopment.feedback.databinding.ActivityFeedbackBinding
 import id.indevelopment.feedback.util.LogUtil
 import java.io.File
@@ -102,6 +103,13 @@ internal class FeedbackActivity : AppCompatActivity() {
         }.run {
             startActivity(Intent.createChooser(this, "Send Feedback"))
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (supportFragmentManager.findFragmentByTag(LogDialog.TAG) as? DialogFragment)?.dismiss()
+        (supportFragmentManager.findFragmentByTag(ScreenshotPreviewDialog.TAG) as? DialogFragment)?.dismiss()
+        (supportFragmentManager.findFragmentByTag(TextDialog.TAG) as? DialogFragment)?.dismiss()
     }
 
     companion object {

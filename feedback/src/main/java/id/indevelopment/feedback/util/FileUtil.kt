@@ -1,4 +1,4 @@
-package id.indevelopment.feedback
+package id.indevelopment.feedback.util
 
 import android.graphics.Bitmap
 import java.io.FileOutputStream

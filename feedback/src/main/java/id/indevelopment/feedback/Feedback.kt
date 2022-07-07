@@ -6,6 +6,8 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
 import androidx.core.view.drawToBitmap
+import id.indevelopment.feedback.util.BitmapUtil
+import id.indevelopment.feedback.util.FileUtil
 import java.io.File
 import java.io.FileOutputStream
 

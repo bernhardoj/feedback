@@ -1,6 +1,7 @@
 package id.indevelopment.feedback
 
 import android.graphics.Bitmap
+import id.indevelopment.feedback.util.FileUtil
 import org.junit.Test
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify

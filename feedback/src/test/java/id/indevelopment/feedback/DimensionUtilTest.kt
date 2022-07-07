@@ -2,10 +2,10 @@ package id.indevelopment.feedback
 
 import android.content.res.Resources
 import android.util.TypedValue
+import id.indevelopment.feedback.util.DimensionUtil
 import org.junit.Test
 import org.mockito.Mockito.mockStatic
 import org.mockito.kotlin.mock
-import org.mockito.kotlin.verify
 
 internal class DimensionUtilTest {
     private val resources = mock<Resources>()

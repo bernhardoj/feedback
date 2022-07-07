@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.DialogFragment
 import id.indevelopment.feedback.databinding.FeedbackScreenshotPreviewBinding
+import id.indevelopment.feedback.util.DimensionUtil
+import id.indevelopment.feedback.util.FileUtil
 import me.panavtec.drawableview.DrawableViewConfig
 import java.io.File
 import java.io.FileOutputStream

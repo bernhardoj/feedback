@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment
 internal class TextDialog(private val text: String) : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(requireContext())
+            .setTitle(R.string.feedback_system_logs)
             .setMessage(text)
             .create()
     }

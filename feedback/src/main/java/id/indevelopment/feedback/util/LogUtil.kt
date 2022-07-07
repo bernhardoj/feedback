@@ -1,9 +1,10 @@
-package id.indevelopment.feedback
+package id.indevelopment.feedback.util
 
 import android.content.Context
 import android.os.Build
 import android.os.Process
 import android.util.Log
+import id.indevelopment.feedback.SystemInfo
 import java.io.*
 
 internal object LogUtil {

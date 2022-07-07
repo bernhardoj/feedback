@@ -10,6 +10,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.get
 import androidx.core.widget.addTextChangedListener
 import id.indevelopment.feedback.databinding.ActivityFeedbackBinding
+import id.indevelopment.feedback.util.LogUtil
 import java.io.File
 import java.util.*
 

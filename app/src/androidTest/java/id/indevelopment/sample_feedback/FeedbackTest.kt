@@ -62,9 +62,10 @@ class FeedbackTest {
 
         // check logs dialog
         onView(withId(R.id.view_logs)).perform(click())
+        onView(withId(R.id.logList)).inRoot(isDialog()).check(matches(allOf(isDisplayed())))
+        onView(withId(R.id.logs)).perform(swipeUp(), click())
         onView(withId(android.R.id.message)).inRoot(isDialog()).check(matches(isDisplayed()))
         pressBack()
-        onView(withId(android.R.id.message)).check(doesNotExist())
 
         // check screenshot dialog
         onView(withId(R.id.edit_button)).perform(click())

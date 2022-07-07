@@ -10,7 +10,7 @@ internal class LogDialog(private val logs: SpannableStringBuilder) : DialogFragm
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
         AlertDialog.Builder(requireContext())
             .setMessage(logs)
-            .setTitle(R.string.dialog_title)
+            .setTitle(R.string.feedback_dialog_title)
             .create()
 
     companion object {

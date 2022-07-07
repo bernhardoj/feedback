@@ -22,10 +22,10 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
     private val highlightColor by lazy {
         ContextCompat.getColor(
             requireContext(),
-            R.color.highlight_color
+            R.color.feedback_highlight_color
         )
     }
-    private val hideColor by lazy { ContextCompat.getColor(requireContext(), R.color.hide_color) }
+    private val hideColor by lazy { ContextCompat.getColor(requireContext(), R.color.feedback_hide_color) }
 
     private val config by lazy {
         DrawableViewConfig().apply {
@@ -65,11 +65,11 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
                     it.screenshotPreviewPickHideColor.drawable.mutate() as GradientDrawable
                 highlightButton.setStroke(
                     DimensionUtil.dpToPx(resources, 2f).toInt(),
-                    ContextCompat.getColor(requireContext(), R.color.border_color)
+                    ContextCompat.getColor(requireContext(), R.color.feedback_border_color)
                 )
                 hideButton.setStroke(
                     DimensionUtil.dpToPx(resources, 0f).toInt(),
-                    ContextCompat.getColor(requireContext(), R.color.border_color)
+                    ContextCompat.getColor(requireContext(), R.color.feedback_border_color)
                 )
             }
             it.screenshotPreviewPickHideColor.setOnClickListener { _ ->
@@ -80,11 +80,11 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
                     it.screenshotPreviewPickHighlightColor.drawable.mutate() as GradientDrawable
                 hideButton.setStroke(
                     DimensionUtil.dpToPx(resources, 2f).toInt(),
-                    ContextCompat.getColor(requireContext(), R.color.border_color)
+                    ContextCompat.getColor(requireContext(), R.color.feedback_border_color)
                 )
                 highlightButton.setStroke(
                     DimensionUtil.dpToPx(resources, 0f).toInt(),
-                    ContextCompat.getColor(requireContext(), R.color.border_color)
+                    ContextCompat.getColor(requireContext(), R.color.feedback_border_color)
                 )
             }
             it.screenshotPreviewClose.setOnClickListener {

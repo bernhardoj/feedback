@@ -1,16 +1,16 @@
 <resources>
-    <string name="send_feedback">Send feedback</string>
-    <string name="send">Send</string>
+    <string name="feedback_send_feedback">Send feedback</string>
+    <string name="feedback_send">Send</string>
     <string name="feedback_hint">Write your feedback, bug report, or feature request here. Don\'t share any sensitive information.</string>
-    <string name="screenshot">Screenshot</string>
-    <string name="edit">Edit</string>
-    <string name="system_logs">System logs</string>
-    <string name="view">View</string>
-    <string name="dialog_title">System information</string>
-    <string name="highlight">Highlight</string>
-    <string name="hide">Hide</string>
-    <string name="undo">Undo</string>
-    <string name="save">Save</string>
-    <string name="close">Close</string>
-    <string name="screenshot_preview">Screenshot Preview</string>
+    <string name="feedback_screenshot">Screenshot</string>
+    <string name="feedback_edit">Edit</string>
+    <string name="feedback_system_logs">System logs</string>
+    <string name="feedback_view">View</string>
+    <string name="feedback_dialog_title">System information</string>
+    <string name="feedback_highlight">Highlight</string>
+    <string name="feedback_hide">Hide</string>
+    <string name="feedback_undo">Undo</string>
+    <string name="feedback_save">Save</string>
+    <string name="feedback_close">Close</string>
+    <string name="feedback_screenshot_preview">Screenshot Preview</string>
 </resources>

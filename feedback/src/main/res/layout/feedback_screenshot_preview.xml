@@ -27,8 +27,8 @@
                     android:id="@+id/screenshot_preview_pick_highlight_color"
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
-                    android:src="@drawable/highlight_shape"
-                    android:contentDescription="@string/highlight"
+                    android:src="@drawable/feedback_highlight_shape"
+                    android:contentDescription="@string/feedback_highlight"
                     android:background="?attr/selectableItemBackground"
                     android:padding="3dp"
                     android:layout_marginEnd="3dp"/>
@@ -38,8 +38,8 @@
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
                     android:padding="3dp"
-                    android:src="@drawable/hide_shape"
-                    android:contentDescription="@string/hide"
+                    android:src="@drawable/feedback_hide_shape"
+                    android:contentDescription="@string/feedback_hide"
                     android:background="?attr/selectableItemBackground"/>
 
             </LinearLayout>
@@ -48,8 +48,8 @@
                 android:id="@+id/screenshot_preview_undo"
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
-                android:src="@drawable/ic_baseline_undo_24"
-                android:contentDescription="@string/undo"
+                android:src="@drawable/feedback_ic_baseline_undo_24"
+                android:contentDescription="@string/feedback_undo"
                 android:layout_centerInParent="true"
                 android:background="?attr/selectableItemBackground"/>
 
@@ -64,16 +64,16 @@
                     android:id="@+id/screenshot_preview_save"
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
-                    android:src="@drawable/ic_baseline_check_24"
-                    android:contentDescription="@string/save"
+                    android:src="@drawable/feedback_ic_baseline_check_24"
+                    android:contentDescription="@string/feedback_save"
                     android:background="?attr/selectableItemBackground"/>
 
                 <ImageButton
                     android:id="@+id/screenshot_preview_close"
                     android:layout_width="?attr/actionBarSize"
                     android:layout_height="?attr/actionBarSize"
-                    android:src="@drawable/ic_baseline_close_24"
-                    android:contentDescription="@string/close"
+                    android:src="@drawable/feedback_ic_baseline_close_24"
+                    android:contentDescription="@string/feedback_close"
                     android:background="?attr/selectableItemBackground"/>
 
             </LinearLayout>
@@ -98,6 +98,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:contentDescription="@string/screenshot_preview" />
+            android:contentDescription="@string/feedback_screenshot_preview" />
     </RelativeLayout>
 </LinearLayout>

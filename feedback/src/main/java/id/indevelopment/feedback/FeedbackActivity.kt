@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.SpannableStringBuilder
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.view.get
@@ -39,7 +40,7 @@ internal class FeedbackActivity : AppCompatActivity() {
             locale
         )
 
-        binding.toolbar.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
+        binding.toolbar.setNavigationIcon(R.drawable.feedback_ic_baseline_arrow_back_24)
         binding.toolbar.setNavigationContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description)
         binding.toolbar.setNavigationOnClickListener {
             finish()
@@ -67,6 +68,7 @@ internal class FeedbackActivity : AppCompatActivity() {
         binding.textField.addTextChangedListener {
             binding.toolbar.menu[0].isEnabled = it?.isNotEmpty() ?: false
         }
+        Log.d("TAG", "openFeedback: end ${System.currentTimeMillis()}")
     }
 
     private fun sendFeedback() {

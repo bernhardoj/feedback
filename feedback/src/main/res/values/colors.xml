@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="highlight_color">#7Fffee58</color>
-    <color name="hide_color">@android:color/black</color>
-    <color name="border_color">#fff</color>
+    <color name="feedback_highlight_color">#7Fffee58</color>
+    <color name="feedback_hide_color">@android:color/black</color>
+    <color name="feedback_border_color">#fff</color>
 </resources>

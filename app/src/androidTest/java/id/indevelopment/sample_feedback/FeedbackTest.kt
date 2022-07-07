@@ -52,7 +52,7 @@ class FeedbackTest {
             .check(matches(isDisplayed()))
 
         // check toolbar title
-        onView(withId(R.id.toolbar)).check(matches(hasDescendant(withText(R.string.send_feedback))))
+        onView(withId(R.id.toolbar)).check(matches(hasDescendant(withText(R.string.feedback_send_feedback))))
 
         // check send button enable after feedback is not empty
         onView(withId(R.id.send_feedback)).check(matches(isNotEnabled()))

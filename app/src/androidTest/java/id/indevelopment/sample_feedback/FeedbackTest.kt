@@ -18,6 +18,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import id.indevelopment.feedback.R
 import id.indevelopment.sample_feedback.matcher.Matcher.withImageDrawable
+import id.indevelopment.sample_feedback.matcher.Matcher.withImageSize
 import org.hamcrest.Matchers.*
 import org.junit.After
 import org.junit.Before
@@ -67,12 +68,18 @@ class FeedbackTest {
 
         // check screenshot dialog
         onView(withId(R.id.edit_button)).perform(click())
-        onView(withId(R.id.screenshot_preview_save)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withId(R.id.screenshot_preview_undo)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withId(R.id.screenshot_preview_pick_highlight_color)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withId(R.id.screenshot_preview_pick_hide_color)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withId(R.id.screenshot_preview_image)).inRoot(isDialog()).check(matches(isDisplayed()))
-        onView(withId(R.id.screenshot_preview_image_drawable_view)).inRoot(isDialog()).check(matches(isDisplayed()))
+        onView(withId(R.id.screenshot_preview_save)).inRoot(isDialog())
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.screenshot_preview_undo)).inRoot(isDialog())
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.screenshot_preview_pick_highlight_color)).inRoot(isDialog())
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.screenshot_preview_pick_hide_color)).inRoot(isDialog())
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.screenshot_preview_image)).inRoot(isDialog())
+            .check(matches(isDisplayed()))
+        onView(withId(R.id.screenshot_preview_image_drawable_view)).inRoot(isDialog())
+            .check(matches(isDisplayed()))
         onView(withId(R.id.screenshot_preview_close)).perform(click())
         onView(withId(R.id.screenshot_preview_image_drawable_view)).check(doesNotExist())
 
@@ -201,12 +208,10 @@ class FeedbackTest {
 
     @Test
     fun openFeedbackWithProvidedBitmapAsScreenshot() {
-        val feedback = "this is my feedback"
         onView(withId(id.indevelopment.sample_feedback.R.id.button2)).perform(click())
-
-        onView(withId(R.id.textField)).perform(typeText(feedback))
 
         // check if the passed bitmap is shown on the screenshot
         onView(withId(R.id.screenshot)).check(matches(withImageDrawable(id.indevelopment.sample_feedback.R.drawable.ss)))
+        onView(withId(R.id.screenshot)).check(matches(withImageSize(576, 1024)))
     }
 }

@@ -63,8 +63,10 @@ internal class FeedbackActivity : AppCompatActivity() {
         binding.screenshot.setImageURI(uri)
         binding.editButton.setOnClickListener {
             ScreenshotPreviewDialog(uri) {
-                binding.screenshot.setImageURI(null)
-                binding.screenshot.setImageURI(uri)
+                runOnUiThread {
+                    binding.screenshot.setImageURI(null)
+                    binding.screenshot.setImageURI(uri)
+                }
             }.show(supportFragmentManager, ScreenshotPreviewDialog.TAG)
         }
 

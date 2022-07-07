@@ -17,6 +17,7 @@ import id.indevelopment.feedback.util.FileUtil
 import me.panavtec.drawableview.DrawableViewConfig
 import java.io.File
 import java.io.FileOutputStream
+import java.util.concurrent.Executors
 
 internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave: () -> Unit) :
     DialogFragment() {
@@ -96,12 +97,14 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
                 it.screenshotPreviewImageDrawableView.undo()
             }
             it.screenshotPreviewSave.setOnClickListener { _ ->
-                FileUtil.saveBitmap(
-                    it.screenshotPreviewImageViewUpdated.drawToBitmap(),
-                    FileOutputStream(File(requireContext().cacheDir, "feedback_screenshot.png"))
-                )
-                onSave()
-                dismiss()
+                Executors.newSingleThreadExecutor().execute {
+                    FileUtil.saveBitmap(
+                        it.screenshotPreviewImageViewUpdated.drawToBitmap(),
+                        FileOutputStream(File(requireContext().cacheDir, "feedback_screenshot.png"))
+                    )
+                    onSave()
+                    dismiss()
+                }
             }
         }
 

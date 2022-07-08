@@ -51,8 +51,8 @@ internal object LogUtil {
         packageVersion: String,
         packageVersionName: String,
         locale: String
-    ): List<SystemInfo> {
-        val infos = mutableListOf<SystemInfo>()
+    ): ArrayList<SystemInfo> {
+        val infos = arrayListOf<SystemInfo>()
         infos.add(SystemInfo("Package name", packageName))
         infos.add(SystemInfo("Package version", packageVersion))
         infos.add(SystemInfo("Package version name", packageVersionName))

@@ -1,3 +1,7 @@
 package id.indevelopment.feedback
 
-data class SystemInfo(val title: String, val body: String)
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class SystemInfo(val title: String, val body: String): Parcelable

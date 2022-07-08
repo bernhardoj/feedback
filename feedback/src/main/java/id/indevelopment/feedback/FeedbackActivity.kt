@@ -9,15 +9,15 @@ import androidx.core.content.FileProvider
 import androidx.core.view.WindowCompat
 import androidx.core.view.get
 import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.DialogFragment
 import id.indevelopment.feedback.databinding.ActivityFeedbackBinding
 import id.indevelopment.feedback.util.LogUtil
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
-internal class FeedbackActivity : AppCompatActivity() {
+internal class FeedbackActivity : AppCompatActivity(), ScreenshotPreviewDialog.ScreenshotPreviewListener {
     private val binding by lazy { ActivityFeedbackBinding.inflate(layoutInflater) }
-    private lateinit var logs: List<SystemInfo>
+    private lateinit var logs: ArrayList<SystemInfo>
     private lateinit var appName: String
     private lateinit var screenshotFile: File
     private lateinit var emailTo: String
@@ -57,18 +57,14 @@ internal class FeedbackActivity : AppCompatActivity() {
         }
 
         binding.viewLogs.setOnClickListener {
-            LogDialog(logs).show(supportFragmentManager, LogDialog.TAG)
+            LogDialog.newInstance(logs).show(supportFragmentManager, LogDialog.TAG)
         }
 
         val uri = Uri.fromFile(screenshotFile)
         binding.screenshot.setImageURI(uri)
         binding.editButton.setOnClickListener {
-            ScreenshotPreviewDialog(uri) {
-                runOnUiThread {
-                    binding.screenshot.setImageURI(null)
-                    binding.screenshot.setImageURI(uri)
-                }
-            }.show(supportFragmentManager, ScreenshotPreviewDialog.TAG)
+            ScreenshotPreviewDialog.newInstance(uri)
+                .show(supportFragmentManager, ScreenshotPreviewDialog.TAG)
         }
 
         binding.textField.addTextChangedListener {
@@ -105,11 +101,12 @@ internal class FeedbackActivity : AppCompatActivity() {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
-        (supportFragmentManager.findFragmentByTag(LogDialog.TAG) as? DialogFragment)?.dismiss()
-        (supportFragmentManager.findFragmentByTag(ScreenshotPreviewDialog.TAG) as? DialogFragment)?.dismiss()
-        (supportFragmentManager.findFragmentByTag(TextDialog.TAG) as? DialogFragment)?.dismiss()
+    override fun onSave() {
+        runOnUiThread {
+            val uri = Uri.fromFile(screenshotFile)
+            binding.screenshot.setImageURI(null)
+            binding.screenshot.setImageURI(uri)
+        }
     }
 
     companion object {

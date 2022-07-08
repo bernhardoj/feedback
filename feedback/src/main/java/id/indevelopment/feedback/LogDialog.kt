@@ -7,18 +7,26 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.indevelopment.feedback.databinding.FeedbackLogDialogBinding
 
-internal class LogDialog(private val logs: List<SystemInfo>) : DialogFragment() {
+internal class LogDialog : DialogFragment() {
     private var binding: FeedbackLogDialogBinding? = null
+    private var logs: ArrayList<SystemInfo>? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            logs = it.getParcelableArrayList(LOGS)
+        }
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = FeedbackLogDialogBinding.inflate(layoutInflater)
         binding?.let {
             it.logList.apply {
                 layoutManager = LinearLayoutManager(context)
-                adapter = LogAdapter(logs)
+                adapter = LogAdapter(logs ?: listOf())
             }
             it.logs.setOnClickListener {
-                TextDialog(logs[logs.size-1].body).show(childFragmentManager, null)
+                TextDialog.newInstance(logs?.last()?.body ?: "").show(childFragmentManager, null)
             }
         }
         return AlertDialog.Builder(requireContext())
@@ -34,5 +42,16 @@ internal class LogDialog(private val logs: List<SystemInfo>) : DialogFragment() 
 
     companion object {
         const val TAG = "LogDialog"
+        private const val LOGS = "LOGS"
+
+        fun newInstance(logs: ArrayList<SystemInfo>): LogDialog {
+            val dialog = LogDialog()
+            val args = Bundle().apply {
+                putParcelableArrayList(LOGS, logs)
+            }
+            dialog.arguments = args
+
+            return dialog
+        }
     }
 }

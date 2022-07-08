@@ -1,6 +1,7 @@
 package id.indevelopment.feedback
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
@@ -19,8 +20,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.util.concurrent.Executors
 
-internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave: () -> Unit) :
-    DialogFragment() {
+internal class ScreenshotPreviewDialog : DialogFragment() {
     private var binding: FeedbackScreenshotPreviewBinding? = null
     private val highlightColor by lazy {
         ContextCompat.getColor(
@@ -29,6 +29,8 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
         )
     }
     private val hideColor by lazy { ContextCompat.getColor(requireContext(), R.color.feedback_hide_color) }
+    private var uri: Uri? = null
+    private lateinit var listener: ScreenshotPreviewListener
 
     private val config by lazy {
         DrawableViewConfig().apply {
@@ -40,6 +42,27 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
             val decorView = requireActivity().window.decorView
             canvasWidth = decorView.width
             canvasHeight = decorView.height
+        }
+    }
+
+    interface ScreenshotPreviewListener {
+        fun onSave()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            listener = context as ScreenshotPreviewListener
+        } catch (e: ClassCastException) {
+            throw ClassCastException((context.toString() +
+                    " must implement ScreenshotPreviewListener"))
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            uri = it.getParcelable(URI)
         }
     }
 
@@ -102,7 +125,7 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
                         it.screenshotPreviewImageViewUpdated.drawToBitmap(),
                         FileOutputStream(File(requireContext().cacheDir, "feedback_screenshot.png"))
                     )
-                    onSave()
+                    listener.onSave()
                     dismiss()
                 }
             }
@@ -118,5 +141,16 @@ internal class ScreenshotPreviewDialog(private val uri: Uri, private val onSave:
 
     companion object {
         const val TAG = "ScreenshotPreviewDialog"
+        private const val URI = "URI"
+
+        fun newInstance(uri: Uri): ScreenshotPreviewDialog {
+            val dialog = ScreenshotPreviewDialog()
+            val args = Bundle().apply {
+                putParcelable(URI, uri)
+            }
+            dialog.arguments = args
+
+            return dialog
+        }
     }
 }

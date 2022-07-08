@@ -2,5 +2,5 @@
 <resources>
     <color name="feedback_highlight_color">#7Fffee58</color>
     <color name="feedback_hide_color">@android:color/black</color>
-    <color name="feedback_border_color">#757575</color>
+    <color name="feedback_border_color">#42a5f5</color>
 </resources>

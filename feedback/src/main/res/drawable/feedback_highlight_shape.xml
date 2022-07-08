@@ -3,6 +3,6 @@
     android:shape="oval">
     <solid android:color="@color/feedback_highlight_color"/>
     <stroke
-        android:width="2dp"
+        android:width="4dp"
         android:color="@color/feedback_border_color"/>
 </shape>

@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.GradientDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.Window
 import androidx.core.content.ContextCompat
@@ -61,6 +62,7 @@ internal class ScreenshotPreviewDialog : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        savedInstanceState?.let { dismiss() }
         arguments?.let {
             uri = it.getParcelable(URI)
         }
@@ -90,7 +92,7 @@ internal class ScreenshotPreviewDialog : DialogFragment() {
                 val hideButton =
                     it.screenshotPreviewPickHideColor.drawable.mutate() as GradientDrawable
                 highlightButton.setStroke(
-                    DimensionUtil.dpToPx(resources, 2f).toInt(),
+                    DimensionUtil.dpToPx(resources, 4f).toInt(),
                     ContextCompat.getColor(requireContext(), R.color.feedback_border_color)
                 )
                 hideButton.setStroke(
@@ -105,7 +107,7 @@ internal class ScreenshotPreviewDialog : DialogFragment() {
                 val highlightButton =
                     it.screenshotPreviewPickHighlightColor.drawable.mutate() as GradientDrawable
                 hideButton.setStroke(
-                    DimensionUtil.dpToPx(resources, 2f).toInt(),
+                    DimensionUtil.dpToPx(resources, 4f).toInt(),
                     ContextCompat.getColor(requireContext(), R.color.feedback_border_color)
                 )
                 highlightButton.setStroke(

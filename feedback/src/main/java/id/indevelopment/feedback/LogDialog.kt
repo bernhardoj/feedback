@@ -26,7 +26,7 @@ internal class LogDialog : DialogFragment() {
                 adapter = LogAdapter(logs ?: listOf())
             }
             it.logs.setOnClickListener {
-                TextDialog.newInstance(logs?.last()?.body ?: "").show(childFragmentManager, null)
+                TextDialog.newInstance(logs?.last()?.body ?: "").show(childFragmentManager, TextDialog.TAG)
             }
         }
         return AlertDialog.Builder(requireContext())

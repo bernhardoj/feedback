@@ -3,11 +3,8 @@ package id.indevelopment.feedback
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import androidx.core.view.WindowCompat
 import androidx.core.view.get
 import androidx.core.widget.addTextChangedListener
 import id.indevelopment.feedback.databinding.ActivityFeedbackBinding
@@ -26,8 +23,6 @@ internal class FeedbackActivity : AppCompatActivity(), ScreenshotPreviewDialog.S
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        window.statusBarColor = ContextCompat.getColor(this, android.R.color.white)
-        WindowCompat.getInsetsController(window, binding.root).isAppearanceLightStatusBars = true
 
         val packageName = intent.getStringExtra(PACKAGE_NAME) ?: ""
         val packageVersion = intent.getStringExtra(PACKAGE_VERSION) ?: ""

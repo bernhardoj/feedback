@@ -1,86 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/transparent">
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:background="@android:color/white"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+        android:paddingHorizontal="4dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_alignParentStart="true">
-
-                <ImageButton
-                    android:id="@+id/screenshot_preview_pick_highlight_color"
-                    android:layout_width="?attr/actionBarSize"
-                    android:layout_height="?attr/actionBarSize"
-                    android:src="@drawable/feedback_highlight_shape"
-                    android:contentDescription="@string/feedback_highlight"
-                    android:background="?attr/selectableItemBackground"
-                    android:padding="3dp"
-                    android:layout_marginEnd="3dp"/>
-
-                <ImageButton
-                    android:id="@+id/screenshot_preview_pick_hide_color"
-                    android:layout_width="?attr/actionBarSize"
-                    android:layout_height="?attr/actionBarSize"
-                    android:padding="3dp"
-                    android:src="@drawable/feedback_hide_shape"
-                    android:contentDescription="@string/feedback_hide"
-                    android:background="?attr/selectableItemBackground"/>
-
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/screenshot_preview_undo"
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="?attr/actionBarSize"
-                android:src="@drawable/feedback_ic_baseline_undo_24"
-                android:contentDescription="@string/feedback_undo"
-                android:layout_centerInParent="true"
-                android:background="?attr/selectableItemBackground"/>
+                android:id="@+id/screenshot_preview_pick_highlight_color"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/feedback_highlight"
+                android:padding="3dp"
+                android:src="@drawable/feedback_highlight_shape" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="3dp"
-                android:layout_alignParentEnd="true"
-                android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/screenshot_preview_pick_hide_color"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="?selectableItemBackground"
+                android:contentDescription="@string/feedback_hide"
+                android:padding="3dp"
+                android:src="@drawable/feedback_hide_shape" />
 
-                <ImageButton
-                    android:id="@+id/screenshot_preview_save"
-                    android:layout_width="?attr/actionBarSize"
-                    android:layout_height="?attr/actionBarSize"
-                    android:src="@drawable/feedback_ic_baseline_check_24"
-                    android:contentDescription="@string/feedback_save"
-                    android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
 
-                <ImageButton
-                    android:id="@+id/screenshot_preview_close"
-                    android:layout_width="?attr/actionBarSize"
-                    android:layout_height="?attr/actionBarSize"
-                    android:src="@drawable/feedback_ic_baseline_close_24"
-                    android:contentDescription="@string/feedback_close"
-                    android:background="?attr/selectableItemBackground"/>
+        <ImageButton
+            android:id="@+id/screenshot_preview_undo"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_centerInParent="true"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/feedback_undo"
+            android:src="@drawable/feedback_ic_baseline_undo_24" />
 
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
 
-        </RelativeLayout>
+            <ImageButton
+                android:id="@+id/screenshot_preview_save"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/feedback_save"
+                android:src="@drawable/feedback_ic_baseline_check_24" />
 
-    </androidx.appcompat.widget.Toolbar>
+            <ImageButton
+                android:id="@+id/screenshot_preview_close"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/feedback_close"
+                android:src="@drawable/feedback_ic_baseline_close_24" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/screenshot_preview_image_view_updated"
@@ -89,9 +80,9 @@
 
         <me.panavtec.drawableview.DrawableView
             android:id="@+id/screenshot_preview_image_drawable_view"
-            android:layout_centerInParent="true"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
 
         <ImageView
             android:id="@+id/screenshot_preview_image"

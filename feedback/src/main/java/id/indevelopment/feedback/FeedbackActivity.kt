@@ -64,7 +64,7 @@ internal class FeedbackActivity : AppCompatActivity(), ScreenshotPreviewDialog.S
         }
 
         binding.textField.addTextChangedListener {
-            binding.toolbar.menu[0].isEnabled = it?.isNotEmpty() ?: false
+            binding.toolbar.menu[0].isEnabled = it?.trim()?.isNotEmpty() ?: false
         }
     }
 

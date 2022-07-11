@@ -2,7 +2,7 @@
     <style name="Theme.Feedback" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimaryVariant">@color/dark_color</item>
         <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
-        <item name="android:statusBarColor" tools:targetApi="m">@color/dark_color</item>
+        <item name="android:statusBarColor">@color/dark_color</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 

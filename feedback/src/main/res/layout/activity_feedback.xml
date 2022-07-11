@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:clipToPadding="false"
     android:paddingBottom="16dp"
+    android:background="?attr/colorPrimaryVariant"
     tools:context=".FeedbackActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,9 +17,9 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="@android:color/white"
+            android:background="?attr/colorPrimaryVariant"
             android:elevation="2dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            android:theme="@style/Toolbar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -67,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/feedback_system_logs"
-            android:textColor="@android:color/black"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/view_logs"
             app:layout_constraintStart_toEndOf="@+id/logs_checkbox"
@@ -107,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/feedback_screenshot"
-            android:textColor="@android:color/black"
+            android:textColor="?android:attr/textColorPrimary"
             android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@id/edit_button"
             app:layout_constraintStart_toEndOf="@+id/screenshot_checkbox"

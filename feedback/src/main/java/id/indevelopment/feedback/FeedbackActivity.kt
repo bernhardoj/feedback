@@ -11,11 +11,10 @@ import id.indevelopment.feedback.databinding.ActivityFeedbackBinding
 import id.indevelopment.feedback.util.LogUtil
 import java.io.File
 import java.util.*
-import kotlin.collections.ArrayList
 
 internal class FeedbackActivity : AppCompatActivity(), ScreenshotPreviewDialog.ScreenshotPreviewListener {
     private val binding by lazy { ActivityFeedbackBinding.inflate(layoutInflater) }
-    private lateinit var logs: ArrayList<SystemInfo>
+    private lateinit var logs: SystemLog
     private lateinit var appName: String
     private lateinit var screenshotFile: File
     private lateinit var emailTo: String
@@ -53,7 +52,7 @@ internal class FeedbackActivity : AppCompatActivity(), ScreenshotPreviewDialog.S
         }
 
         binding.viewLogs.setOnClickListener {
-            LogDialog.newInstance(logs).show(supportFragmentManager, LogDialog.TAG)
+            SystemDialog.newInstance(logs).show(supportFragmentManager, SystemDialog.TAG)
         }
 
         val uri = Uri.fromFile(screenshotFile)

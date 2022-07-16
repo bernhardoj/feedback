@@ -5,15 +5,17 @@ import android.os.Build
 import android.os.Process
 import android.util.Log
 import id.indevelopment.feedback.SystemInfo
+import id.indevelopment.feedback.SystemLog
 import java.io.*
 
 internal object LogUtil {
     private val TAG: String? = LogUtil::class.java.canonicalName
 
-    private fun getLogcat(): String {
+    private fun getLogcat(): List<String> {
         val logcatCmd = arrayOf("logcat", "-d", "-v", "threadtime")
         val pid = Process.myPid().toString()
-        val builder = StringBuilder()
+        val logcat = mutableListOf<String>()
+//        val builder = StringBuilder()
 
         var isr: InputStreamReader? = null
         var bufferedReader: BufferedReader? = null
@@ -24,12 +26,14 @@ internal object LogUtil {
             var line: String?
             while (bufferedReader.readLine().also { line = it } != null) {
                 if (line?.contains(pid) == true) {
-                    builder.appendLine(line)
+//                    builder.appendLine(line)
+                    logcat.add(line!!)
                 }
             }
         } catch (e: IOException) {
             Log.e(TAG, "getLogcat error: $e")
-            return ""
+//            return ""
+            return listOf()
         } finally {
             try {
                 isr?.close()
@@ -43,7 +47,8 @@ internal object LogUtil {
                 }
             }
         }
-        return builder.toString()
+//        return builder.toString()
+        return logcat
     }
 
     fun buildLogs(
@@ -51,7 +56,7 @@ internal object LogUtil {
         packageVersion: String,
         packageVersionName: String,
         locale: String
-    ): ArrayList<SystemInfo> {
+    ): SystemLog {
         val infos = arrayListOf<SystemInfo>()
         infos.add(SystemInfo("Package name", packageName))
         infos.add(SystemInfo("Package version", packageVersion))
@@ -69,9 +74,8 @@ internal object LogUtil {
         infos.add(SystemInfo("Codename", Build.VERSION.CODENAME))
         infos.add(SystemInfo("Board", Build.BOARD))
         infos.add(SystemInfo("Brand", Build.BRAND))
-        infos.add(SystemInfo("Logs", getLogcat()))
 
-        return infos
+        return SystemLog(infos, getLogcat())
     }
 
     fun writeLogsToFile(context: Context, logs: String): File {
